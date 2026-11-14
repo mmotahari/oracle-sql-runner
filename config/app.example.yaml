@@ -6,3 +6,7 @@ app:
 server:
   host: "0.0.0.0"
   port: 8000
+
+sql_execution:
+  sqlcl_path: "sql"
+  timeout_seconds: 300

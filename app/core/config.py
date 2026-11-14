@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import yaml
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -19,9 +19,15 @@ class ServerSettings(BaseModel):
     port: int
 
 
+class SQLExecutionSettings(BaseModel):
+    sqlcl_path: str
+    timeout_seconds: int = Field(gt=0)
+
+
 class Settings(BaseModel):
     app: AppSettings
     server: ServerSettings
+    sql_execution: SQLExecutionSettings
 
 
 def load_settings() -> Settings:
