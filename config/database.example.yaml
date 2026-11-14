@@ -1,0 +1,6 @@
+oracle:
+  host: "localhost"
+  port: 1521
+  service_name: "FREEPDB1"
+  username: "sql_runner"
+  password: "test_password"
