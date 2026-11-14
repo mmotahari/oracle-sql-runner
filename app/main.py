@@ -1,16 +1,12 @@
 from fastapi import FastAPI
 
 from app.core.config import settings
+from app.api.routes.health import router as health_router
 
-app=FastAPI(
+
+app = FastAPI(
     title=settings.app.name,
     version=settings.app.version,
 )
 
-@app.get("/health")
-def health_check():
-    return {
-    "status": "ok",
-    "application": settings.app.name,
-    "version": settings.app.version,
-}
+app.include_router(health_router)
